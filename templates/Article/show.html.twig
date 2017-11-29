@@ -2,12 +2,13 @@
 
 {% block body %}
     <a href="#">Update Article</a>
-    <h2>Titre de l'article</h2>
-    <p>Author: Prénom Nom</p>
-    <p>Views: 5</p>
+    <h2>{{ article.titre }}</h2>
+    <p>Author: {{ article.firstname }} {{ article.lastname }}</p>
+    <p>Views: {{ article.countView }}</p>
     <ul>
-        <li>Food</li>
-        <li>News</li>
+        {% for tag in article.tags %}
+        <li>{{ tag.name }}</li>
+        {% endfor %}
     </ul>
-    <p>Contenu de l'article</p>
+    <p>{{ article.content }}</p>
 {% endblock %}

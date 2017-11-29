@@ -11,6 +11,15 @@ class NewArticleHandler
 {
     public function handle(Article $article): void
     {
+        $slugGene = new SlugGenerator();
+        $slug = $slugGene->generate($article->getTitle());
+
+        $article->setSlug($slug);
+
+       // $user= TokenStorage::class->get('security.context')->getToken()->getUser();
+        //$article->setAuthor($user);
+
+
         // Slugify le titre et ajoute l'utilisateur courant comme auteur de l'article
         // Log également un article stat avec pour action create.
     }

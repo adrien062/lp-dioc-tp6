@@ -13,12 +13,86 @@ class ArticleStat
     const UPDATE = 'update';
     const VIEW = 'view';
 
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $action;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $article;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
     private $date;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $ip;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     */
     private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAction()
+    {
+        return $this->action;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIp()
+    {
+        return $this->ip;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
 
     // Uniquement des getter et un constructeur
 }

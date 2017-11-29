@@ -27,6 +27,17 @@ class Tag
     private $slug;
 
     /**
+     * Tag constructor.
+     * @param $name
+     * @param $slug
+     */
+    public function __construct($name, $slug)
+    {
+        $this->name = $name;
+        $this->slug = $slug;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -49,4 +60,6 @@ class Tag
     {
         return $this->slug;
     }
+
+
 }

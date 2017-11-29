@@ -4,6 +4,7 @@
     <table>
         <thead>
             <tr>
+                <th>Username</th>
                 <th>Article name</th>
                 <th>Date</th>
                 <th>IP</th>
@@ -11,12 +12,15 @@
             </tr>
         </thead>
         <tbody>
+            {% for unArticleStat in articleStat %}
             <tr>
-                <td>Titre de l'article</td>
-                <td>Date de la stat</td>
-                <td>192.168.99.100</td>
-                <td>create</td>
+                <td>{{  unArticleStat.user.firstname}}</td>
+                <td>{{  unArticleStat.article.title}}</td>
+                <td>{{  unArticleStat.date|date("m/d/Y")}}</td>
+                <td>{{ unArticleStat.ip}}</td>
+                <td>{{ unArticleStat.action}}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endblock %}

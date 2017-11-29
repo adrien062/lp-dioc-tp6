@@ -2,6 +2,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    fetch_limit: '%env(FETCH_LIMIT)%'
 
 services:
     # default configuration for services in *this* file
@@ -33,3 +34,21 @@ services:
 
     App\Slug\SlugGenerator:
         public: true
+
+    App\Entity\Article:
+        public: true
+
+    App\Article\ViewArticleHandler:
+        public: true
+
+    App\Article\UpdateArticleHandler:
+        public: true
+
+    App\Article\ArticleStatsLogger:
+        public: true
+
+    App\Article\ArticleFetcher:
+        arguments: ['%fetch_limit%']
+        public: true
+        autowire: true
+

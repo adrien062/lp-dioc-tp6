@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <a href="#">Update Article</a>
-    <h2>{{ article.titre }}</h2>
-    <p>Author: {{ article.firstname }} {{ article.lastname }}</p>
-    <p>Views: {{ article.countView }}</p>
+    <a href="{{ path("article_update", {"article" : article, "slug" : article.slug}) }}">Update Article</a>
+    <h2>{{ article.title }} {{ article.countView }}</h2>
+    <h3>{{ article.author.firstname }} {{ article.author.lastname }}</h3>
+    <p>{{ article.content }}</p>
     <ul>
         {% for tag in article.tags %}
         <li>{{ tag.name }}</li>
         {% endfor %}
     </ul>
-    <p>{{ article.content }}</p>
 {% endblock %}

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity
@@ -60,6 +61,8 @@ class Article
 
     public function __construct()
     {
+        $this->createdAt = new \DateTime("now");
+        $this->updatedAt = new \DateTime("now");
         $this->tags = new ArrayCollection();
     }
 

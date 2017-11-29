@@ -26,7 +26,7 @@ class ArticleStat
     private $action;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="Article")
      */
     private $article;
 
@@ -44,6 +44,23 @@ class ArticleStat
      * @ORM\ManyToOne(targetEntity="User")
      */
     private $user;
+
+    /**
+     * ArticleStat constructor.
+     * @param $action
+     * @param $article
+     * @param $date
+     * @param $ip
+     * @param $user
+     */
+    public function __construct($action, Article $article, $date, $ip, $user)
+    {
+        $this->action = $action;
+        $this->article = $article;
+        $this->date = $date;
+        $this->ip = $ip;
+        $this->user = $user;
+    }
 
     /**
      * @return mixed
@@ -92,6 +109,7 @@ class ArticleStat
     {
         return $this->user;
     }
+
 
 
     // Uniquement des getter et un constructeur
